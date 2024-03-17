@@ -6,6 +6,7 @@ import { FaRegCircleQuestion } from "react-icons/fa6";
 import { MdOutlineSettings } from "react-icons/md";
 import QuextionBtn from './QuextionBtn';
 import { Context } from '../Context/Context';
+import { motion } from 'framer-motion';
 
 function Sidebar() {
 
@@ -13,7 +14,7 @@ function Sidebar() {
     const {prevPrompts , setResult} = useContext(Context);
 
     return (
-        <div className={`hidden md:flex h-full px-4 py-6 flex-col justify-between ${collapse && "items-center"} items-start bg-zinc-200`}>
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2}} className={`hidden md:flex h-full px-4 py-6 flex-col justify-between ${collapse && "items-center"} items-start bg-zinc-200`}>
             <div className={`top h-3/4 flex flex-col ${collapse && "items-center"}`}>
                 <button onClick={() => { setCollapse(prev => !prev) }} className='hover:bg-zinc-400 p-2 rounded-full w-fit'><IoMenu size={20} /></button>
                 <div className='mt-10 flex gap-1 items-center bg-zinc-400 rounded-full w-fit px-2 py-2'>
@@ -44,7 +45,7 @@ function Sidebar() {
                     {!collapse && <p>Settings</p>}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

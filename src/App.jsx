@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full overflow-y-hidden">
       <div className="flex gap-2 h-screen">
         <Sidebar/>
         <div className="flex flex-col w-full h-screen">
