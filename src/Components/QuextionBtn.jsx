@@ -12,7 +12,7 @@ function QuextionBtn({question}) {
     }
 
     return (
-        <button onClick={()=>loadPrompt(question)} className='hover:bg-zinc-300 px-4 py-2 rounded-full flex items-center gap-2 w-[95%]'>
+        <button onClick={()=>loadPrompt(question)} className='hover:bg-gray-600 hover:text-white px-4 py-2 rounded-full flex items-center gap-2 w-[95%]'>
             <div>
                 <LuMessageSquare size={25} />
             </div>

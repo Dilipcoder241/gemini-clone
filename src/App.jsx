@@ -1,20 +1,33 @@
-import Chat from "./Components/Chat"
-import Navbar from "./Components/Navbar"
-import Sidebar from "./Components/Sidebar"
+import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import Home from "./Components/HomePage/Home";
+import Login from "./Components/LoginPage/Login";
+import Register from "./Components/RegisterPage/Register"
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
 
   return (
-    <div className="min-h-screen w-full overflow-y-hidden">
-      <div className="flex gap-2 h-screen">
-        <Sidebar/>
-        <div className="flex flex-col w-full h-screen">
-          <Navbar/>
-          <Chat/>
-        </div>
-      </div>
-    </div>
+    <>
+    <ToastContainer 
+      position="top-left"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      theme="dark"/>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Register/>}/>
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/profile" element={<ProfilePage/>}/>
+      </Routes>
+    </Router>
+    </>
   )
 }
 

@@ -15,8 +15,8 @@ function GreatingCard() {
     <div>
 
       {!showresult ? <>
-        <motion.h1 initial={{x:300, opacity:0}} animate={{x:0 , opacity:1}} transition={{duration:0.6}} className='text-[9vw] md:text-[5vw] font-semibold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text'>Hello, User</motion.h1>
-        <motion.p initial={{x:300}} animate={{x:0}} transition={{duration:0.8}} className='text-[4vw] font-semibold text-zinc-500'>How can I Help You Today?</motion.p>
+        <motion.h1 initial={{x:300, opacity:0}} animate={{x:0 , opacity:1}} transition={{duration:0.6}} className='text-[9vw] md:text-[5vw] font-semibold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text leading-none'>Hello, User</motion.h1>
+        <motion.p initial={{x:300}} animate={{x:0}} transition={{duration:0.8}} className='text-[4vw] font-semibold text-zinc-500 leading-none'>How can I Help You Today?</motion.p>
 
         <div className="boxes md:flex-row flex gap-1 md:gap-3 mt-2 md:mt-16 flex-col">
           <Box title="suggest beaches to visit in city, including details" icon={<FaRegCompass />} />
