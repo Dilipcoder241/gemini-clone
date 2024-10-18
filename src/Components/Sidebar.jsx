@@ -6,10 +6,12 @@ import QuextionBtn from './QuextionBtn';
 import { Context } from '../Context/Context';
 import { motion } from 'framer-motion';
 import { IoClose } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 
 function Sidebar({ setShowSidebar }) {
-    const { prevPrompts, setResult } = useContext(Context);
+    const { setResult , userData } = useContext(Context);
+    
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }} className={`flex h-full w-full px-4 py-6 flex-col justify-between items-start`}>
@@ -32,23 +34,23 @@ function Sidebar({ setShowSidebar }) {
                     <p>Recent</p>
                     <hr className='border-zinc-400 mb-5' />
                     <div className='overflow-y-scroll h-full'>
-                        {prevPrompts.map((q, i) => (<QuextionBtn key={i} question={q} />))}
+                        {userData?.chats?.map((item) => (<QuextionBtn key={item._id} question={item.question} />))}
                     </div>
                 </div>
             </div>
-            <div className='bottom'>
+            <div className='bottom w-full'>
                 <div className="icon flex items-center gap-4 my-4">
                     <FaRegCircleQuestion size={22} />
                     <p>Help</p>
                 </div>
-                <div className="icon flex items-center gap-4 my-4">
+                <Link to="/profile" className="icon flex items-center gap-4 my-4">
                     <FaClockRotateLeft size={22} />
                     <p>Activity</p>
-                </div>
-                <div className="icon flex items-center gap-4 my-4">
+                </Link>
+                <Link to="/profile" className="icon flex items-center gap-4 my-4">
                     <MdOutlineSettings size={22} />
                     <p>Settings</p>
-                </div>
+                </Link>
             </div>
         </motion.div>
     )

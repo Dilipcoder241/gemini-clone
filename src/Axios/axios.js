@@ -2,8 +2,9 @@ import axios from "axios";
 
 const instance = axios.create({
     baseURL: 'http://localhost:4000',
+    withCredentials: true,
     headers: {
-        'Token': localStorage.getItem('Token') || "",
+        'token': localStorage.getItem('Token') || "",
         'Content-Type': 'application/json'
     }
 });
@@ -11,7 +12,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
     (config) => {
 
-        config.headers['Token'] = localStorage.getItem('token') || "";
+        config.headers['Token'] = localStorage.getItem('Token') || "";
 
         return config;
     },

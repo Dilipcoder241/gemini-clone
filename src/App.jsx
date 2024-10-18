@@ -5,6 +5,7 @@ import Register from "./Components/RegisterPage/Register"
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UpdateProfile from "./Components/UpdateProfile/UpdateProfile";
 
 function App() {
 
@@ -18,13 +19,16 @@ function App() {
       newestOnTop={false}
       closeOnClick
       rtl={false}
-      theme="dark"/>
+      theme="dark"
+      
+      />
     <Router>
       <Routes>
       <Route path="/" element={<Register/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/profile" element={<ProfilePage/>}/>
+      <Route path="/UpdateProfile" element={<UpdateProfile/>}/>
       </Routes>
     </Router>
     </>

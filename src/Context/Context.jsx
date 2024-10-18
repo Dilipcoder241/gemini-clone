@@ -11,13 +11,14 @@ const ContextProvider = (props)=>{
     const [result, setResult] = useState("");
     const [prevPrompts, setPrevPrompts] = useState([]);
     const [prevQuestion, setPrevQuestion] = useState("");
+    const [userData, setuserData] = useState("");
 
 
-    const delaypera = (index , nextword) =>{
-        setTimeout(function(){
-            setResult(prev => prev+nextword);
-        }, 75*index)
-    }
+    // const delaypera = (index , nextword) =>{
+    //     setTimeout(function(){
+    //         setResult(prev => prev+nextword);
+    //     }, 75*index)
+    // }
 
 
     const onSent = async (question) =>{
@@ -37,10 +38,8 @@ const ContextProvider = (props)=>{
                 newArray += "<b>"+newdata[i]+"</b>";
             }
         }
-        let response = newArray.split("*").join("</br>").split(" ");
-        for(let i=0 ;i<response.length;i++){
-            delaypera(i , response[i]+" ");
-        }
+        let response = newArray.split("*").join("</br>");
+        setResult(response);
         {prompt && setPrevPrompts([prompt ,...prevPrompts])}
         setLoading(false);
     }
@@ -55,7 +54,9 @@ const ContextProvider = (props)=>{
         prevQuestion,
         setPrevQuestion,
         setResult,
-        showresult
+        showresult,
+        userData,
+        setuserData
     }
 
     return (

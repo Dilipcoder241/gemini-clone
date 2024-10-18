@@ -14,7 +14,6 @@ export default function Login() {
 
     try {
       const {data} = await axios.post('/login' , obj);
-      console.log(data);
       if(data.success){
         localStorage.setItem("Token" , data.token);
         navigate("/home");
